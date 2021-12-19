@@ -23,11 +23,15 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         const captions = this.universe.map(name => this.props.enumAttribute.formatter.format(name)); // labels (name of enum)
         console.log("name: "+ captions);
 
+        const universe = this.universe
+        console.log("universe: "+ universe);
+
         //const keys = this.universe.keys(this.props.enumAttribute.value!);
         //console.log("keys: "+ keys);
         
         return <CheckboxList 
             value={value}
+            universe={universe}
             style={this.props.style}
             className={this.props.class}
             tabIndex={this.props.tabIndex}

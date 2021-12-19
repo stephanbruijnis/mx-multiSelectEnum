@@ -2,7 +2,7 @@
   "name": "multiselectenum",
   "widgetName": "MultiSelectEnum",
   "version": "0.1.0",
-  "description": "Select and display multiple enumeration values",
+  "description": "Select multiple enumeration values",
   "copyright": "2021 Stephan Bruijnis Consultancy",
   "author": "Stephan Bruijnis",
   "engines": {
@@ -24,7 +24,11 @@
   },
   "license": "AGPL-3.0",
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^9.0.0"
+    "@mendix/pluggable-widgets-tools": "^9.0.0",
+    "@types/big.js": "^6.0.2",
+    "@types/classnames": "^2.2.4",
+    "@types/react": "~17.0.1",
+    "@types/react-dom": "~17.0.1"
   },
   "dependencies": {
     "classnames": "^2.2.6"

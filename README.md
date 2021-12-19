@@ -1,5 +1,5 @@
 ## MultiSelectEnum
-[Select and display multiple enumeration values]
+[Select multiple enumeration values]
 
 ## Features
 [feature highlights]

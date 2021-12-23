@@ -2,7 +2,8 @@ import { Component, ReactNode, createElement } from "react";
 
 export interface InputProps {
     value: string;
-    universe: Array;
+    universe: Array<String>;
+    captions: Array<String>;
     className?: string;
     index?: number;
     style?: CSSProperties;
@@ -10,14 +11,19 @@ export interface InputProps {
 }
 
 export class CheckboxList extends Component<InputProps> {
+
     render(): ReactNode {
         return (
             <div>
-                this.props.universe.map(function (keyz))
-                {
-                    <input type ="checkbox" name="enumGroup" value="{keyz}" />
-                }
+                {this.props.universe.map(this.eachEnumKey)}
             </div>
-            );
+        );
+    }
+
+    private eachEnumKey(enumKey: string, i: number, captions: Array<String>): ReactNode {
+        console.debug('eachEnumKey: ' + enumKey + ' ' +  i + captions[i]);
+        return (
+            <label><input type="Checkbox" /></label>
+        );
     }
 }

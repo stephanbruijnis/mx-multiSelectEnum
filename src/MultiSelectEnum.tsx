@@ -32,6 +32,7 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         return <CheckboxList 
             value={value}
             universe={universe}
+            captions={captions}
             style={this.props.style}
             className={this.props.class}
             tabIndex={this.props.tabIndex}

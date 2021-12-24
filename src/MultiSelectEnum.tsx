@@ -2,7 +2,7 @@ import { Component, ReactNode, createElement } from "react";
 import { hot } from "react-hot-loader/root";
 
 import { MultiSelectEnumContainerProps } from "../typings/MultiSelectEnumProps";
-import { CheckboxList } from "./components/CheckboxList";
+import { CheckboxItem } from "./components/CheckboxItem";
 
 import "./ui/MultiSelectEnum.css";
 
@@ -23,20 +23,39 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         const captions = this.universe.map(name => this.props.enumAttribute.formatter.format(name)); // labels (name of enum)
         console.log("name: "+ captions);
 
+        console.log("enumAttribute: " + this.props.enumAttribute.displayValue)
+
         const universe = this.universe
         console.log("universe: "+ universe);
 
         //const keys = this.universe.keys(this.props.enumAttribute.value!);
         //console.log("keys: "+ keys);
-        
-        return <CheckboxList 
-            value={value}
-            universe={universe}
-            captions={captions}
+
+        return (
+            <div
             style={this.props.style}
             className={this.props.class}
             tabIndex={this.props.tabIndex}
-            />;
+            >
+                {this.universe.map(this.eachEnumKey)} 
+            </div>
+        );
+        
+        // return <CheckboxList 
+        //     value={value}
+        //     universe={universe}
+        //     captions={captions}
+        //     style={this.props.style}
+        //     className={this.props.class}
+        //     tabIndex={this.props.tabIndex}
+        //     />;
+    }
+
+    private eachEnumKey(enumKey: string, i: number, uni: Array<string>): ReactNode {
+        console.debug('eachEnumKey: ' + enumKey + ' ' +  i + uni);
+        return (
+            <CheckboxItem key={i} ></CheckboxItem>
+        );
     }
     // private readonly onClickHandler = this.onClick.bind(this);
 

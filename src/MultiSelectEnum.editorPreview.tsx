@@ -1,6 +1,6 @@
 import { Component, ReactNode, createElement } from "react";
 
-import { CheckboxList } from "./components/CheckboxList";
+import { CheckboxItem } from "./components/CheckboxItem";
 
 import { MultiSelectEnumPreviewProps } from "../typings/MultiSelectEnumProps";
 

@@ -7,6 +7,7 @@ import { CheckboxItem } from "./components/CheckboxItem";
 import "./ui/MultiSelectEnum.css";
 
 class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
+    private readonly onLeaveHandle = this.onLeave.bind(this);
 
     private get universe(): string[] {
         // As this property can only be an Enum we know that universe is defined
@@ -31,13 +32,19 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         //const keys = this.universe.keys(this.props.enumAttribute.value!);
         //console.log("keys: "+ keys);
 
+        // This is not allowed, but it is what we want
+        //this.props.enumAttribute.setValue("Dutch,English");
+
+        const valueStr = this.props.enumAttribute_str.value || "";
+        console.log("enumAttribute_str: " + {valueStr});
+
         return (
             <div
             style={this.props.style}
             className={this.props.class}
             tabIndex={this.props.tabIndex}
             >
-                {this.universe.map(this.eachEnumKey)} 
+                {this.universe.map((this.eachEnumKey),this)} 
             </div>
         );
         
@@ -53,10 +60,22 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
 
     private eachEnumKey(enumKey: string, i: number, uni: Array<string>): ReactNode {
         console.debug('eachEnumKey: ' + enumKey + ' ' +  i + uni);
+        console.debug('test:' + this.props.enumAttribute.value)
+        const valueStr = this.props.enumAttribute_str.value || "";
+        var checkedState = valueStr.includes(enumKey);
+        console.log('checkedState: ' + checkedState)
         return (
-            <CheckboxItem key={i} ></CheckboxItem>
+            <CheckboxItem key={i} label={this.props.enumAttribute.formatter.format(enumKey)} checkedState={checkedState} onLeave={this.onLeaveHandle} updateValue={this.updateSelectedValues}/>
         );
     }
+
+    private onLeave(value: string, isChanged: boolean): void {
+        if (!isChanged) {
+            return;
+        }
+        this.props.textAttribute.setValue(value);
+    }
+
     // private readonly onClickHandler = this.onClick.bind(this);
 
     // render(): ReactNode {

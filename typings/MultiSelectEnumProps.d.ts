@@ -10,11 +10,13 @@ export interface MultiSelectEnumContainerProps {
     tabIndex?: number;
     id: string;
     enumAttribute: EditableValue<string>;
+    enumAttribute_str: EditableValue<string>;
     onChangeAction?: ActionValue;
 }
 
 export interface MultiSelectEnumPreviewProps {
     readOnly: boolean;
     enumAttribute: string;
+    enumAttribute_str: string;
     onChangeAction: {} | null;
 }

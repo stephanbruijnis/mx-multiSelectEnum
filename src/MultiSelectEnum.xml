@@ -16,6 +16,13 @@
 					<attributeType name="Enum"/>
 				</attributeTypes>
 			</property>
+			<property key="enumAttribute_str" type="attribute">
+				<caption>Attribute (path)</caption>
+				<description/>
+				<attributeTypes>
+					<attributeType name="String"/>
+				</attributeTypes>
+			</property>
 		</propertyGroup>
 		<propertyGroup caption="Label">
 			<systemProperty key="Label" />

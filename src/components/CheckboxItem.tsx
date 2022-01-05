@@ -16,7 +16,6 @@ export class CheckboxItem extends Component<InputProps> {
     private onChangeHandle(e) {
         this.props.onUpdate(this.props.enumKey, e.target.checked);
     }
-
     render(): ReactNode {
         return (
             <label>

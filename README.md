@@ -1,7 +1,6 @@
 ## MultiSelectEnum
 With this widget you can easily select multiple values of an enumeration via checkboxes.
 
-
 ![appstore](/assets/multi-select-enum_appstore_001.png)
 
 Show this MultiSelectEnum:
@@ -37,14 +36,14 @@ Download the widget into your app and add **Multi Select Enum** to a data view o
 ## Properties
 
 ### General Properties
-- Direction – determines if the checkbox items will render horizontally or vertically (to do)
+- Direction – determines if the checkbox items will render horizontally or vertically (TO DO)
 
 ### Data source
-- Target attribute enum – an attribute of the enumeration type, the values of which will be rendered as the checkbox items list
-- Target attribute string – an attribute of the string type, which will store the selected values of the enumeration
+- Attribute enum – an attribute of the enumeration type, the values of which will be rendered as the checkbox items list
+- Attribute string – an attribute of the string type, which will store the selected values of the enumeration
 
 ### Events
-- On change – this is the microflow that will be invoked for an on-change  event  (to do)
+- On change – this is the microflow that will be invoked for an on-change event  
 
 ## Demo project
 n/a

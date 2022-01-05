@@ -38,7 +38,7 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         );
     }
 
-    private eachEnumKey(enumKey: string, i: number, uni: Array<string>): ReactNode {
+    private eachEnumKey(enumKey: string, i: number): ReactNode {
         // For each key in the universe of the enumeration we will show a checkbox
         const valueStr = this.props.enumAttribute_str.value || "";
 
@@ -46,7 +46,7 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         var checkedState = valueStr.includes(enumKey);
 
         return (
-            <CheckboxItem key={i} index={i} enumKey={enumKey} label={this.props.enumAttribute.formatter.format(enumKey)} checkedState={checkedState} onUpdate={this.onUpdateHandle} />
+            <CheckboxItem key={i} index={i} enumKey={enumKey} label={this.props.enumAttribute.formatter.format(enumKey)} checkedState={checkedState} onUpdate={this.onUpdateHandle} disabled={this.props.enumAttribute.readOnly} />
         );
     }
 

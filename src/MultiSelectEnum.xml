@@ -10,14 +10,14 @@
 	<propertyGroup caption="General">
 		<propertyGroup caption="Data source">
 			<property key="enumAttribute" type="attribute" onChange="onChangeAction" >
-				<caption>Attribute (path)</caption>
+				<caption>Attribute - enumeration</caption>
 				<description/>
 				<attributeTypes>
 					<attributeType name="Enum"/>
 				</attributeTypes>
 			</property>
 			<property key="enumAttribute_str" type="attribute">
-				<caption>Attribute (path)</caption>
+				<caption>Attribute - string</caption>
 				<description/>
 				<attributeTypes>
 					<attributeType name="String"/>

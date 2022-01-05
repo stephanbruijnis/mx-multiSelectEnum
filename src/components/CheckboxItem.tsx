@@ -9,16 +9,17 @@ export interface InputProps {
     tabIndex?: number;
     checkedState: boolean;
     onUpdate: (value: string, changed: boolean) => void;
+    disabled?: boolean;
 }
 
 export class CheckboxItem extends Component<InputProps> {
-    private readonly onChangeHandle (e) {
+    private onChangeHandle (e) {
         this.props.onUpdate(this.props.enumKey, e.target.checked);
     }
 
     render(): ReactNode {
         return (
-            <label><input type="Checkbox" defaultChecked={this.props.checkedState} checked={this.props.checkedState} onChange={(e) => {this.onChangeHandle(e);}} />{this.props.label}</label>
+            <label><input type="Checkbox" defaultChecked={this.props.checkedState} checked={this.props.checkedState} onChange={(e) => {this.onChangeHandle(e);}} disabled={this.props.disabled} />{this.props.label}</label>
         );
     }
 }

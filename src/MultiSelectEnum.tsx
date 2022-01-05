@@ -46,7 +46,15 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         var checkedState = valueStr.includes(enumKey);
 
         return (
-            <CheckboxItem key={i} index={i} enumKey={enumKey} label={this.props.enumAttribute.formatter.format(enumKey)} checkedState={checkedState} onUpdate={this.onUpdateHandle} disabled={this.props.enumAttribute.readOnly} />
+            <CheckboxItem 
+                key={i} 
+                index={i} 
+                enumKey={enumKey} 
+                label={this.props.enumAttribute.formatter.format(enumKey)} 
+                checkedState={checkedState} 
+                onUpdate={this.onUpdateHandle} 
+                disabled={this.props.enumAttribute.readOnly} 
+            />
         );
     }
 

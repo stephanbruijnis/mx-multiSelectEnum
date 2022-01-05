@@ -19,7 +19,13 @@ export class CheckboxItem extends Component<InputProps> {
 
     render(): ReactNode {
         return (
-            <label><input type="Checkbox" defaultChecked={this.props.checkedState} checked={this.props.checkedState} onChange={(e) => {this.onChangeHandle(e);}} disabled={this.props.disabled} />{this.props.label}</label>
+            <label><input 
+                type="Checkbox" 
+                defaultChecked={this.props.checkedState} 
+                checked={this.props.checkedState} 
+                onChange={(e) => {this.onChangeHandle(e);}} 
+                disabled={this.props.disabled} 
+            />{this.props.label}</label>
         );
     }
 }

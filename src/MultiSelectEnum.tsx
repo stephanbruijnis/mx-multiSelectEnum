@@ -58,9 +58,13 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
                 label={this.props.enumAttribute.formatter.format(enumKey)}
                 checkedState={checkedState}
                 onUpdate={this.onUpdateHandle}
-                disabled={this.props.enumAttribute.readOnly}
+                disabled={this.isReadOnly()}
             />
         );
+    }
+
+    private isReadOnly(): boolean {
+        return this.props.enumAttribute.readOnly;
     }
 
     private onUpdate(value: string, isChecked: boolean): void {

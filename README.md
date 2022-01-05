@@ -3,19 +3,17 @@ With this widget you can easily select multiple values of an enumeration via che
 
 ## Example use cases
 Any situation where you want a fixed set of values (enumeration) that can be easily translated and stored on a single object. Some examples:
-- Selecting which languages someone masters;
-- Selecting which days are available; 
-- Selecting which documents are in possession;
-- Showing completed modules;
+- Selecting which languages /days / documents are available
+- Creating checklists & showing completed items;
 - Building advanced search functionality;
 
 ## Features 
 - Multi-select 
 - Translatable values
 - Store data on a single entity
-- Display the list in a horizontal or vertical direction (TO DO)
+- Display the list in a horizontal or vertical direction *(TO DO)*
 - Specify the text of the label
-- Attach a microflow for the on-change event (TO DO)
+- Attach a microflow for the on-change event
 
 ## Notes
 - The string attribute is used to store the selected enumeration values. Make sure that the length of the string attribute is equals (or is larger than) the following sum: `length of enumeration keys + number of enumeration keys - 1`. 
@@ -47,11 +45,4 @@ n/a
 Issues are used to track todos, bugs, feature requests, and more. [Create an issue here](https://github.com/stephanbruijnis/mx-multiSelectEnum/issues)
 
 ## Development and contribution
-
-1. Install NPM package dependencies by using: `npm install`. If you use NPM v7.x.x, which can be checked by executing `npm -v`, execute: `npm install --legacy-peer-deps`.
-1. Run `npm start` to watch for code changes. On every change:
-    - the widget will be bundled;
-    - the bundle will be included in a `dist` folder in the root directory of the project;
-    - the bundle will be included in the `deployment` and `widgets` folder of the Mendix test project.
-
-[specify contribution]
+Play around and find out!

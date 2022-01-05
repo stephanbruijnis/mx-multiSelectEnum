@@ -26,7 +26,7 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
 
         // Current value of the string attribute that contains the comma separate values (enumeration keys)
         const valueStr = this.props.enumAttribute_str.value || "";
-        console.debug("enumAttribute_str: " + { valueStr });
+        // console.debug("enumAttribute_str: " + { valueStr });
 
         // Enable validation feedback on this input element
         const validationFeedback = this.props.enumAttribute.validation;

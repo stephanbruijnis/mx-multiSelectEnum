@@ -3,6 +3,7 @@ import { hot } from "react-hot-loader/root";
 
 import { MultiSelectEnumContainerProps } from "../typings/MultiSelectEnumProps";
 import { CheckboxItem } from "./components/CheckboxItem";
+import { Alert } from "./components/Alert";
 
 import "./ui/MultiSelectEnum.css";
 
@@ -27,13 +28,17 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         const valueStr = this.props.enumAttribute_str.value || "";
         console.debug("enumAttribute_str: " + {valueStr});
 
+        // Enable validation feedback on this input element
+        const validationFeedback = this.props.enumAttribute.validation;
+
         return (
             <div
-            style={this.props.style}
-            className={this.props.class}
-            tabIndex={this.props.tabIndex}
+                style={this.props.style}
+                className={this.props.class}
+                tabIndex={this.props.tabIndex}
             >
                 {this.universe.map((this.eachEnumKey),this)} 
+                <Alert>{validationFeedback}</Alert>
             </div>
         );
     }

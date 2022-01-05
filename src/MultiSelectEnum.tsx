@@ -18,15 +18,15 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
     render(): ReactNode {
         // The enumeration labels (captions)
         const captions = this.universe.map(name => this.props.enumAttribute.formatter.format(name)); // labels (name of enum)
-        console.debug("enumeration captions: "+ captions); 
+        console.debug("enumeration captions: " + captions);
 
         // All possible enumeration values (keys)
         const universe = this.universe
-        console.debug("universe: "+ universe);
+        console.debug("universe: " + universe);
 
         // Current value of the string attribute that contains the comma separate values (enumeration keys)
         const valueStr = this.props.enumAttribute_str.value || "";
-        console.debug("enumAttribute_str: " + {valueStr});
+        console.debug("enumAttribute_str: " + { valueStr });
 
         // Enable validation feedback on this input element
         const validationFeedback = this.props.enumAttribute.validation;
@@ -37,7 +37,7 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
                 className={this.props.class}
                 tabIndex={this.props.tabIndex}
             >
-                {this.universe.map((this.eachEnumKey),this)} 
+                {this.universe.map((this.eachEnumKey), this)}
                 <Alert>{validationFeedback}</Alert>
             </div>
         );
@@ -51,14 +51,14 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         var checkedState = valueStr.includes(enumKey);
 
         return (
-            <CheckboxItem 
-                key={i} 
-                index={i} 
-                enumKey={enumKey} 
-                label={this.props.enumAttribute.formatter.format(enumKey)} 
-                checkedState={checkedState} 
-                onUpdate={this.onUpdateHandle} 
-                disabled={this.props.enumAttribute.readOnly} 
+            <CheckboxItem
+                key={i}
+                index={i}
+                enumKey={enumKey}
+                label={this.props.enumAttribute.formatter.format(enumKey)}
+                checkedState={checkedState}
+                onUpdate={this.onUpdateHandle}
+                disabled={this.props.enumAttribute.readOnly}
             />
         );
     }
@@ -69,8 +69,8 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         if (!isChecked) {
             var res = valueStr.split(',').filter(s => s !== value).join(',');
             this.props.enumAttribute_str.setValue(res);
-        }else {
-            if(valueStr.length > 1) {
+        } else {
+            if (valueStr.length > 1) {
                 var res = valueStr + ',' + value;
             }
             else {

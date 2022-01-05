@@ -13,19 +13,20 @@ export interface InputProps {
 }
 
 export class CheckboxItem extends Component<InputProps> {
-    private onChangeHandle (e) {
+    private onChangeHandle(e) {
         this.props.onUpdate(this.props.enumKey, e.target.checked);
     }
 
     render(): ReactNode {
         return (
-            <label><input 
-                type="Checkbox" 
-                defaultChecked={this.props.checkedState} 
-                checked={this.props.checkedState} 
-                onChange={(e) => {this.onChangeHandle(e);}} 
-                disabled={this.props.disabled} 
-            />{this.props.label}</label>
+            <label>
+                <input
+                    type="Checkbox"
+                    defaultChecked={this.props.checkedState}
+                    checked={this.props.checkedState}
+                    onChange={(e) => { this.onChangeHandle(e); }}
+                    disabled={this.props.disabled}
+                />{this.props.label}</label>
         );
     }
 }

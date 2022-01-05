@@ -15,28 +15,17 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
     }
 
     render(): ReactNode {
-        const value = this.props.enumAttribute.value || "";
-        console.log("enumAttribute: " + {value});
-
-        const selectedIndex = this.universe.indexOf(this.props.enumAttribute.value!);
-        console.log("selected index: " + selectedIndex);   
-
+        // The enumeration labels (captions)
         const captions = this.universe.map(name => this.props.enumAttribute.formatter.format(name)); // labels (name of enum)
-        console.log("name: "+ captions);
+        console.debug("enumeration captions: "+ captions); 
 
-        console.log("enumAttribute: " + this.props.enumAttribute.displayValue)
-
+        // All possible enumeration values (keys)
         const universe = this.universe
-        console.log("universe: "+ universe);
+        console.debug("universe: "+ universe);
 
-        //const keys = this.universe.keys(this.props.enumAttribute.value!);
-        //console.log("keys: "+ keys);
-
-        // This is not allowed, but it is what we want
-        //this.props.enumAttribute.setValue("Dutch,English");
-
+        // Current value of the string attribute that contains the comma separate values (enumeration keys)
         const valueStr = this.props.enumAttribute_str.value || "";
-        console.log("enumAttribute_str: " + {valueStr});
+        console.debug("enumAttribute_str: " + {valueStr});
 
         return (
             <div
@@ -47,36 +36,29 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
                 {this.universe.map((this.eachEnumKey),this)} 
             </div>
         );
-        
-        // return <CheckboxList 
-        //     value={value}
-        //     universe={universe}
-        //     captions={captions}
-        //     style={this.props.style}
-        //     className={this.props.class}
-        //     tabIndex={this.props.tabIndex}
-        //     />;
     }
 
     private eachEnumKey(enumKey: string, i: number, uni: Array<string>): ReactNode {
-        console.debug('eachEnumKey: ' + enumKey + ' ' +  i + uni);
-        console.debug('test:' + this.props.enumAttribute.value)
+        // For each key in the universe of the enumeration we will show a checkbox
         const valueStr = this.props.enumAttribute_str.value || "";
+
+        // Determine of the current enumeration value (key) is available in the string and thus should be shown as a checked checkbox
         var checkedState = valueStr.includes(enumKey);
-        console.log('checkedState: ' + checkedState)
+
         return (
             <CheckboxItem key={i} index={i} enumKey={enumKey} label={this.props.enumAttribute.formatter.format(enumKey)} checkedState={checkedState} onUpdate={this.onUpdateHandle} />
         );
     }
 
     private onUpdate(value: string, isChecked: boolean): void {
-        var valStr = this.props.enumAttribute_str.value || "";
+        // Store the changes in the checked checkboxes as comma separated value in the string attribute
+        const valueStr = this.props.enumAttribute_str.value || "";
         if (!isChecked) {
-            var res = valStr.split(',').filter(s => s !== value).join(',');
+            var res = valueStr.split(',').filter(s => s !== value).join(',');
             this.props.enumAttribute_str.setValue(res);
         }else {
-            if(valStr.length > 1) {
-                var res = valStr + ',' + value;
+            if(valueStr.length > 1) {
+                var res = valueStr + ',' + value;
             }
             else {
                 var res = value;
@@ -84,29 +66,6 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
             this.props.enumAttribute_str.setValue(res);
         }
     }
-
-    // private readonly onClickHandler = this.onClick.bind(this);
-
-    // render(): ReactNode {
-    //     return (
-    //         <BadgeSample
-    //             type={this.props.multiselectenumType}
-    //             bootstrapStyle={this.props.bootstrapStyle}
-    //             className={this.props.class}
-    //             clickable={!!this.props.onClickAction}
-    //             defaultValue={this.props.multiselectenumValue ? this.props.multiselectenumValue : ""}
-    //             onClickAction={this.onClickHandler}
-    //             style={this.props.style}
-    //             value={this.props.valueAttribute ? this.props.valueAttribute.displayValue : ""}
-    //         ></BadgeSample>
-    //     );
-    // }
-
-    // private onClick(): void {
-    //     if (this.props.onClickAction && this.props.onClickAction.canExecute) {
-    //         this.props.onClickAction.execute();
-    //     }
-    // }
 }
 
 export default hot(MultiSelectEnum);

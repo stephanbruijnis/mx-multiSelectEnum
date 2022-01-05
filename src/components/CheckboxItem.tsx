@@ -21,7 +21,4 @@ export class CheckboxItem extends Component<InputProps> {
             <label><input type="Checkbox" defaultChecked={this.props.checkedState} checked={this.props.checkedState} onChange={(e) => {this.onChangeHandle(e);}} />{this.props.label}</label>
         );
     }
-    // private onChange(event: ChangeEvent<HTMLInputElement>): void {
-    //     this.setState({ editedValue: event.target.value });
-    // }
 }

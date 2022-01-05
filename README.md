@@ -1,6 +1,14 @@
 ## MultiSelectEnum
 With this widget you can easily select multiple values of an enumeration via checkboxes.
 
+
+![appstore](/assets/multi-select-enum_appstore_001.png)
+
+Show this MultiSelectEnum:
+
+![preview](/assets/Screenshot_001.PNG)
+
+
 ## Example use cases
 Any situation where you want a fixed set of values (enumeration) that can be easily translated and stored on a single object. Some examples:
 - Selecting which languages /days / documents are available

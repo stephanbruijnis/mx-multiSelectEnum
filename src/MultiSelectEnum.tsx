@@ -7,7 +7,7 @@ import { CheckboxItem } from "./components/CheckboxItem";
 import "./ui/MultiSelectEnum.css";
 
 class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
-    private readonly onLeaveHandle = this.onLeave.bind(this);
+    private readonly onUpdateHandle = this.onUpdate.bind(this);
 
     private get universe(): string[] {
         // As this property can only be an Enum we know that universe is defined
@@ -65,15 +65,24 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         var checkedState = valueStr.includes(enumKey);
         console.log('checkedState: ' + checkedState)
         return (
-            <CheckboxItem key={i} label={this.props.enumAttribute.formatter.format(enumKey)} checkedState={checkedState} onLeave={this.onLeaveHandle} updateValue={this.updateSelectedValues}/>
+            <CheckboxItem key={i} index={i} enumKey={enumKey} label={this.props.enumAttribute.formatter.format(enumKey)} checkedState={checkedState} onUpdate={this.onUpdateHandle} />
         );
     }
 
-    private onLeave(value: string, isChanged: boolean): void {
-        if (!isChanged) {
-            return;
+    private onUpdate(value: string, isChecked: boolean): void {
+        var valStr = this.props.enumAttribute_str.value || "";
+        if (!isChecked) {
+            var res = valStr.split(',').filter(s => s !== value).join(',');
+            this.props.enumAttribute_str.setValue(res);
+        }else {
+            if(valStr.length > 1) {
+                var res = valStr + ',' + value;
+            }
+            else {
+                var res = value;
+            }
+            this.props.enumAttribute_str.setValue(res);
         }
-        this.props.textAttribute.setValue(value);
     }
 
     // private readonly onClickHandler = this.onClick.bind(this);

@@ -2,17 +2,18 @@ import { Component, ReactNode, createElement, Children, ChangeEvent } from "reac
 
 export interface InputProps {
     className?: string;
-    label?: string;
+    label: string;
+    enumKey: string;
     index?: number;
     style?: CSSProperties;
     tabIndex?: number;
     checkedState: boolean;
-    onLeave?: (value: string, changed: boolean) => void;
+    onUpdate: (value: string, changed: boolean) => void;
 }
 
 export class CheckboxItem extends Component<InputProps> {
     private readonly onChangeHandle (e) {
-        this.props.onLeave(this.props.label, e.target.checked);
+        this.props.onUpdate(this.props.enumKey, e.target.checked);
     }
 
     render(): ReactNode {
@@ -20,7 +21,7 @@ export class CheckboxItem extends Component<InputProps> {
             <label><input type="Checkbox" defaultChecked={this.props.checkedState} checked={this.props.checkedState} onChange={(e) => {this.onChangeHandle(e);}} />{this.props.label}</label>
         );
     }
-    private onChange(event: ChangeEvent<HTMLInputElement>): void {
-        this.setState({ editedValue: event.target.value });
-    }
+    // private onChange(event: ChangeEvent<HTMLInputElement>): void {
+    //     this.setState({ editedValue: event.target.value });
+    // }
 }

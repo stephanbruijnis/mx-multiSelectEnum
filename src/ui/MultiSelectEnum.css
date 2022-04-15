@@ -1,0 +1,15 @@
+.checkboxes.inline {
+    display: flex;
+}
+.checkboxes.inline .checkboxes__item {
+    margin: 0 16px 0 0;
+}
+.checkboxes__item {
+    display: flex;
+    align-items: center;
+    padding-top: 7px;
+}
+.checkboxes__item label {
+    margin-left: 8px;
+    margin-bottom: 0;
+}

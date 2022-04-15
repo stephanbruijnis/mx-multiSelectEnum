@@ -37,8 +37,10 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
                 className={this.props.class}
                 tabIndex={this.props.tabIndex}
             >
-                {this.universe.map((this.eachEnumKey), this)}
-                <Alert>{validationFeedback}</Alert>
+                <div className={this.props.orientationMode === "horizontal" ? "checkboxes inline" : "checkboxes"}>
+                    {this.universe.map((this.eachEnumKey), this)}
+                    <Alert>{validationFeedback}</Alert>
+                </div>
             </div>
         );
     }

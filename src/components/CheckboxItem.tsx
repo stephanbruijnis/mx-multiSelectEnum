@@ -16,17 +16,24 @@ export class CheckboxItem extends Component<InputProps> {
     private onChangeHandle(e) {
         this.props.onUpdate(this.props.enumKey, e.target.checked);
     }
-
+    
     render(): ReactNode {
+
         return (
-            <label>
+            <div className="checkboxes__item">
                 <input
                     type="Checkbox"
+                    value={this.props.enumKey}
+                    id={this.props.enumKey}
                     defaultChecked={this.props.checkedState}
                     checked={this.props.checkedState}
                     onChange={(e) => { this.onChangeHandle(e); }}
                     disabled={this.props.disabled}
-                />{this.props.label}</label>
+                />
+                <label htmlFor={this.props.enumKey} className={this.props.checkedState ? "checked" : ""}>
+                    {this.props.label}
+                </label>
+            </div>
         );
     }
 }

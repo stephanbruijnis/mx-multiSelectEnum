@@ -18,11 +18,13 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
     render(): ReactNode {
         // The enumeration labels (captions)
         const captions = this.universe.map(name => this.props.enumAttribute.formatter.format(name)); // labels (name of enum)
-        console.debug("enumeration captions: " + captions);
+        //console.debug("enumeration captions: " + captions);
 
         // All possible enumeration values (keys)
         const universe = this.universe
-        console.debug("universe: " + universe);
+        //console.debug("universe: " + universe);
+        //console.debug("id:" + this.props.id);
+        //console.debug("name:" + this.props.name);
 
         // Current value of the string attribute that contains the comma separate values (enumeration keys)
         const valueStr = this.props.enumAttribute_str.value || "";
@@ -61,6 +63,7 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
                 checkedState={checkedState}
                 onUpdate={this.onUpdateHandle}
                 disabled={this.isReadOnly()}
+                widgetId={this.props.id}
             />
         );
     }
@@ -76,7 +79,7 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
             var res = valueStr.split(',').filter(s => s !== value).join(',');
             this.props.enumAttribute_str.setValue(res);
         } else {
-            if (valueStr.length > 1) {
+            if (valueStr.length >= 1) {
                 var res = valueStr + ',' + value;
             }
             else {

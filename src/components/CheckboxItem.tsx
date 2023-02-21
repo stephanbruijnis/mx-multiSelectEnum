@@ -4,6 +4,7 @@ export interface InputProps {
     className?: string;
     label: string;
     enumKey: string;
+    widgetId: string;
     index?: number;
     style?: CSSProperties;
     tabIndex?: number;
@@ -24,13 +25,13 @@ export class CheckboxItem extends Component<InputProps> {
                 <input
                     type="Checkbox"
                     value={this.props.enumKey}
-                    id={this.props.enumKey}
+                    id={this.props.widgetId+"."+this.props.enumKey}
                     defaultChecked={this.props.checkedState}
                     checked={this.props.checkedState}
                     onChange={(e) => { this.onChangeHandle(e); }}
                     disabled={this.props.disabled}
                 />
-                <label htmlFor={this.props.enumKey} className={this.props.checkedState ? "checked" : ""}>
+                <label htmlFor={this.props.widgetId+"."+this.props.enumKey} className={this.props.checkedState ? "checked" : ""}>
                     {this.props.label}
                 </label>
             </div>

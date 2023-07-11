@@ -5,6 +5,8 @@ import { MultiSelectEnumContainerProps } from "../typings/MultiSelectEnumProps";
 import { CheckboxItem, CheckboxText } from "./components/CheckboxItem";
 import { Alert } from "./components/Alert";
 
+import classNames from "classnames";
+
 import "./ui/MultiSelectEnum.css";
 
 class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
@@ -32,18 +34,15 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
        
         // Enable validation feedback on this input element
         const validationFeedback = this.props.enumAttribute.validation;
-
+        const className = classNames(this.props.className, this.props.orientationMode === "horizontal" ? "checkboxes inline" : "checkboxes");
         return (
-            <div
-                style={this.props.style}
-                className={this.props.class}
-                tabIndex={this.props.tabIndex}
-            >
-                <div className={this.props.orientationMode === "horizontal" ? "checkboxes inline" : "checkboxes"}>
+                <div 
+                    className={className}
+                    style={this.props.style}
+                    tabIndex={this.props.tabIndex}>
                     {this.universe.map((this.eachEnumKey), this)}
                     <Alert>{validationFeedback}</Alert>
                 </div>
-            </div>
         );
     }
 

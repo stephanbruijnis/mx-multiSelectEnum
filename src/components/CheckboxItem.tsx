@@ -1,4 +1,4 @@
-import { Component, ReactNode, createElement, Children, ChangeEvent } from "react";
+import { Component, ReactNode, createElement} from "react";
 
 export interface InputProps {
     className?: string;
@@ -6,7 +6,6 @@ export interface InputProps {
     enumKey: string;
     widgetId: string;
     index?: number;
-    style?: CSSProperties;
     tabIndex?: number;
     checkedState: boolean;
     onUpdate: (value: string, changed: boolean) => void;
@@ -14,7 +13,7 @@ export interface InputProps {
 }
 
 export class CheckboxItem extends Component<InputProps> {
-    private onChangeHandle(e) {
+    private onChangeHandle(e:any) {
         this.props.onUpdate(this.props.enumKey, e.target.checked);
     }
     render(): ReactNode {

@@ -17,17 +17,17 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
 
     render(): ReactNode {
         // The enumeration labels (captions)
-        const captions = this.universe.map(name => this.props.enumAttribute.formatter.format(name)); // labels (name of enum)
+        // const captions = this.universe.map(name => this.props.enumAttribute.formatter.format(name)); // labels (name of enum)
         // console.debug("enumeration captions: " + captions);
 
         // All possible enumeration values (keys)
-        const universe = this.universe
+        // const universe = this.universe
         // console.debug("universe: " + universe);
         // console.debug("id:" + this.props.id);
         // console.debug("name:" + this.props.name);
 
         // Current value of the string attribute that contains the comma separate values (enumeration keys)
-        const valueStr = this.props.enumAttribute_str.value || "";
+        // const valueStr = this.props.enumAttribute_str.value || "";
         // console.debug("enumAttribute_str: " + { valueStr });
        
         // Enable validation feedback on this input element
@@ -57,30 +57,31 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         if (this.renderAsText()){
             return (
                 <CheckboxText 
-                key={i}
-                index={i}
-                enumKey={enumKey}
-                label={this.props.enumAttribute.formatter.format(enumKey)}
-                checkedState={checkedState}
-                onUpdate={this.onUpdateHandle}
-                disabled={this.isReadOnly()}
-                widgetId={this.props.id}
+                    key={i}
+                    index={i}
+                    enumKey={enumKey}
+                    label={this.props.enumAttribute.formatter.format(enumKey)}
+                    checkedState={checkedState}
+                    onUpdate={this.onUpdateHandle}
+                    disabled={this.isReadOnly()}
+                    widgetId={this.props.id}
                 />
             );
         }
-        else 
-        return (
-            <CheckboxItem
-                key={i}
-                index={i}
-                enumKey={enumKey}
-                label={this.props.enumAttribute.formatter.format(enumKey)}
-                checkedState={checkedState}
-                onUpdate={this.onUpdateHandle}
-                disabled={this.isReadOnly()}
-                widgetId={this.props.id}
-            />
-        );
+        else {
+            return (
+                <CheckboxItem
+                        key={i}
+                        index={i}
+                        enumKey={enumKey}
+                        label={this.props.enumAttribute.formatter.format(enumKey)}
+                        checkedState={checkedState}
+                        onUpdate={this.onUpdateHandle}
+                        disabled={this.isReadOnly()}
+                        widgetId={this.props.id}
+                />
+            );
+        }
     }
 
     private renderAsText(): boolean {

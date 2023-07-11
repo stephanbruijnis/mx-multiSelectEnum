@@ -1,8 +1,10 @@
 import { Component, ReactNode, createElement} from "react";
 
-export interface InputProps {
-    className?: string;
+export interface LabelProps {
     label: string;
+}
+
+export interface InputProps extends LabelProps{
     enumKey: string;
     widgetId: string;
     index?: number;
@@ -36,7 +38,7 @@ export class CheckboxItem extends Component<InputProps> {
     }
 }
 
-export class CheckboxText extends Component<InputProps> {
+export class CheckboxItemText extends Component<LabelProps> {
     render(): ReactNode {
         return (
             <span className="checkboxes__itemText">{this.props.label}</span>

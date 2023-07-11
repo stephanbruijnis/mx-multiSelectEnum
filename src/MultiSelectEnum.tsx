@@ -1,8 +1,9 @@
-import { Component, ReactNode, createElement } from "react";
+import { Component, ReactNode, createElement, Fragment } from "react";
 import { hot } from "react-hot-loader/root";
 
+import { CheckboxContainer } from "./components/CheckboxContainer";
+
 import { MultiSelectEnumContainerProps } from "../typings/MultiSelectEnumProps";
-import { CheckboxItem, CheckboxText } from "./components/CheckboxItem";
 import { Alert } from "./components/Alert";
 
 import "./ui/MultiSelectEnum.css";
@@ -21,8 +22,8 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         // console.debug("enumeration captions: " + captions);
 
         // All possible enumeration values (keys)
-        // const universe = this.universe
-        // console.debug("universe: " + universe);
+        const universe = this.universe
+        console.debug("universe: " + universe);
         // console.debug("id:" + this.props.id);
         // console.debug("name:" + this.props.name);
 
@@ -34,80 +35,17 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         const validationFeedback = this.props.enumAttribute.validation;
 
         return (
-            <div
-                style={this.props.style}
-                className={this.props.class}
-                tabIndex={this.props.tabIndex}
-            >
-                <div className={this.props.orientationMode === "horizontal" ? "checkboxes inline" : "checkboxes"}>
-                    {this.universe.map((this.eachEnumKey), this)}
-                    <Alert>{validationFeedback}</Alert>
-                </div>
-            </div>
+            <Fragment>
+                <CheckboxContainer
+                    id={this.props.id}
+                    style={this.props.style}
+                    className={this.props.class}
+                    tabIndex={this.props.tabIndex}
+                    hasError={!!validationFeedback}/>
+                <Alert id={this.props.id + "-error"}>{validationFeedback}</Alert>
+            </Fragment>
         );
-    }
-
-    private eachEnumKey(enumKey: string, i: number): ReactNode {
-        // For each key in the universe of the enumeration we will show a checkbox
-        const valueStr = this.props.enumAttribute_str.value || "";
-
-        // Determine of the current enumeration value (key) is available in the string and thus should be shown as a checked checkbox
-        var checkedState = valueStr.includes(enumKey);
-
-        if (this.renderAsText()){
-            return (
-                <CheckboxText 
-                    key={i}
-                    index={i}
-                    enumKey={enumKey}
-                    label={this.props.enumAttribute.formatter.format(enumKey)}
-                    checkedState={checkedState}
-                    onUpdate={this.onUpdateHandle}
-                    disabled={this.isReadOnly()}
-                    widgetId={this.props.id}
-                />
-            );
-        }
-        else {
-            return (
-                <CheckboxItem
-                        key={i}
-                        index={i}
-                        enumKey={enumKey}
-                        label={this.props.enumAttribute.formatter.format(enumKey)}
-                        checkedState={checkedState}
-                        onUpdate={this.onUpdateHandle}
-                        disabled={this.isReadOnly()}
-                        widgetId={this.props.id}
-                />
-            );
-        }
-    }
-
-    private renderAsText(): boolean {
-        return this.props.enumAttribute.readOnly && this.props.readOnlyStyle=="text"; 
-    }
-
-    private isReadOnly(): boolean {
-        return this.props.enumAttribute.readOnly;
-    }
-
-    private onUpdate(value: string, isChecked: boolean): void {
-        // Store the changes in the checked checkboxes as comma separated value in the string attribute
-        const valueStr = this.props.enumAttribute_str.value || "";
-        if (!isChecked) {
-            var res = valueStr.split(',').filter(s => s !== value).join(',');
-            this.props.enumAttribute_str.setValue(res);
-        } else {
-            if (valueStr.length >= 1) {
-                var res = valueStr + ',' + value;
-            }
-            else {
-                var res = value;
-            }
-            this.props.enumAttribute_str.setValue(res);
-        }
-    }
+    }  
 }
 
 export default hot(MultiSelectEnum);

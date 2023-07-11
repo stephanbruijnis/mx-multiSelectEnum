@@ -17,9 +17,7 @@ export class CheckboxItem extends Component<InputProps> {
     private onChangeHandle(e) {
         this.props.onUpdate(this.props.enumKey, e.target.checked);
     }
-    
     render(): ReactNode {
-
         return (
             <div className="checkboxes__item">
                 <input
@@ -35,6 +33,14 @@ export class CheckboxItem extends Component<InputProps> {
                     {this.props.label}
                 </label>
             </div>
+        );
+    }
+}
+
+export class CheckboxText extends Component<InputProps> {
+    render(): ReactNode {
+        return (
+            <span className="checkboxes__itemText">{this.props.label}</span>
         );
     }
 }

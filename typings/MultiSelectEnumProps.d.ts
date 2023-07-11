@@ -7,6 +7,8 @@ import { ActionValue, EditableValue } from "mendix";
 
 export type OrientationModeEnum = "horizontal" | "vertical";
 
+export type ReadOnlyStyleEnum = "control" | "text";
+
 export interface MultiSelectEnumContainerProps {
     name: string;
     tabIndex?: number;
@@ -14,6 +16,7 @@ export interface MultiSelectEnumContainerProps {
     enumAttribute: EditableValue<string>;
     enumAttribute_str: EditableValue<string>;
     orientationMode: OrientationModeEnum;
+    readOnlyStyle: ReadOnlyStyleEnum;
     onChangeAction?: ActionValue;
 }
 
@@ -22,5 +25,6 @@ export interface MultiSelectEnumPreviewProps {
     enumAttribute: string;
     enumAttribute_str: string;
     orientationMode: OrientationModeEnum;
+    readOnlyStyle: ReadOnlyStyleEnum;
     onChangeAction: {} | null;
 }

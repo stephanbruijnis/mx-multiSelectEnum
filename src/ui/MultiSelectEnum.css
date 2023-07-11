@@ -13,3 +13,10 @@
     margin-left: 8px;
     margin-bottom: 0;
 }
+.checkboxes__itemText::after {
+    content: ', ';
+}
+.checkboxes__itemText:last-child::after
+{
+    content: '';
+}

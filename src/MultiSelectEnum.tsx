@@ -1,4 +1,4 @@
-import { Component, ReactNode, createElement } from "react";
+import { Component, ReactNode, createElement, Fragment } from "react";
 import { hot } from "react-hot-loader/root";
 
 import { MultiSelectEnumContainerProps } from "../typings/MultiSelectEnumProps";
@@ -31,18 +31,20 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         // Current value of the string attribute that contains the comma separate values (enumeration keys)
         // const valueStr = this.props.enumAttribute_str.value || "";
         // console.debug("enumAttribute_str: " + { valueStr });
-       
+
         // Enable validation feedback on this input element
         const validationFeedback = this.props.enumAttribute.validation;
         const className = classNames(this.props.className, this.props.orientationMode === "horizontal" ? "checkboxes inline" : "checkboxes");
         return (
-                <div 
+            <Fragment>
+                <div
                     className={className}
                     style={this.props.style}
                     tabIndex={this.props.tabIndex}>
                     {this.universe.map((this.eachEnumKey), this)}
-                    <Alert>{validationFeedback}</Alert>
                 </div>
+                <Alert>{validationFeedback}</Alert>
+            </Fragment>
         );
     }
 
@@ -53,10 +55,10 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         // Determine of the current enumeration value (key) is available in the string and thus should be shown as a checked checkbox
         var checkedState = valueStr.includes(enumKey);
 
-        if (this.renderAsText()){
-            if(checkedState){
+        if (this.renderAsText()) {
+            if (checkedState) {
                 return (
-                    <CheckboxText 
+                    <CheckboxText
                         key={i}
                         index={i}
                         enumKey={enumKey}
@@ -72,21 +74,21 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         else {
             return (
                 <CheckboxItem
-                        key={i}
-                        index={i}
-                        enumKey={enumKey}
-                        label={this.props.enumAttribute.formatter.format(enumKey)}
-                        checkedState={checkedState}
-                        onUpdate={this.onUpdateHandle}
-                        disabled={this.isReadOnly()}
-                        widgetId={this.props.id}
+                    key={i}
+                    index={i}
+                    enumKey={enumKey}
+                    label={this.props.enumAttribute.formatter.format(enumKey)}
+                    checkedState={checkedState}
+                    onUpdate={this.onUpdateHandle}
+                    disabled={this.isReadOnly()}
+                    widgetId={this.props.id}
                 />
             );
         }
     }
 
     private renderAsText(): boolean {
-        return this.props.enumAttribute.readOnly && this.props.readOnlyStyle=="text"; 
+        return this.props.enumAttribute.readOnly && this.props.readOnlyStyle == "text";
     }
 
     private isReadOnly(): boolean {

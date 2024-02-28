@@ -27,14 +27,13 @@ In this screenshot the widget is shown in multiple configurations (editable, rea
 ## Usage
 Download the widget into your app and add **Multi Select Enum** widget to a data view on your page. Configure the properties described below to determine how the widget will behave in your application
 
-1. **Label** - set the label value (question or other hint for the checkboxes)
+1. **Label** - set the label value (question or other hint for the checkboxes) or turn show label off
 1. **Orientation** – determines if the checkbox items will render horizontally or vertically 
-1. **Attribute enum** – an attribute that is on the entity used in the data view. The attribute needs to be of the type  enumeration type. This enumeration will be used to generate all the checkbox list
+1. **Attribute enum** – an attribute that is on the entity used in the data view. The attribute needs to be of the type  enumeration type. This enumeration will be used to generate all the checkbox items
 1. **Attribute string** – an attribute of the type string, which will store the selected values of the enumeration
 1. **On change** - this is the action that will be invoked for an on-change event, if any of the checkboxes is clicked, this action will be started (e.g. execute nanoflow, microflow, save changes)
 
 ## Limitations
-- They enumeration keys need to be unique. The value of a complete key, e.g. `HelloWorld` should not be a substring of another key like `HelloWorldUSA`.
 - This widget requires 2 attributes: the enumeration attribute to define the enumeration and a string attribute to store the selected values as a comma separate list. Note: the enumeration attribute can still be used for the standard behavior (like for selecting one value of the enumeration. This works independently of the multi-select functionality. The enumeration attribute is only required to determine which list of possible values to render.
 
 ## Notes

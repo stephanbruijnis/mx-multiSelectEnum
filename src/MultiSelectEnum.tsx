@@ -53,7 +53,8 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
         const valueStr = this.props.enumAttribute_str.value || "";
 
         // Determine of the current enumeration value (key) is available in the string and thus should be shown as a checked checkbox
-        var checkedState = valueStr.includes(enumKey);
+        // Only check for full match of the value
+        var checkedState = valueStr.split(',').indexOf(enumKey)!==-1;
 
         if (this.renderAsText()) {
             if (checkedState) {

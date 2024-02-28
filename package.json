@@ -1,7 +1,7 @@
 {
   "name": "multiselectenum",
   "widgetName": "MultiSelectEnum",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Select multiple enumeration values",
   "copyright": "2024 Stephan Bruijnis Consultancy",
   "author": "Stephan Bruijnis",

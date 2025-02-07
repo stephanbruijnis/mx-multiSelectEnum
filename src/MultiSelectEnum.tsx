@@ -34,7 +34,9 @@ class MultiSelectEnum extends Component<MultiSelectEnumContainerProps> {
 
         // Enable validation feedback on this input element
         const validationFeedback = this.props.enumAttribute.validation;
+        // Set the class names defined in Mendix and wether the checkboxes need to display inline
         const className = classNames(this.props.className, this.props.orientationMode === "horizontal" ? "checkboxes inline" : "checkboxes");
+        // Fragment: group elements without a wrapper node
         return (
             <Fragment>
                 <div

@@ -1,9 +1,9 @@
 /**
  * This file was generated from MultiSelectEnum.xml
  * WARNING: All changes made to this file will be overwritten
- * @author Mendix UI Content Team
+ * @author Mendix Widgets Framework Team
  */
-import { ActionValue, EditableValue } from "mendix";
+import { EditableValue } from "mendix";
 
 export type OrientationModeEnum = "horizontal" | "vertical";
 
@@ -17,7 +17,6 @@ export interface MultiSelectEnumContainerProps {
     enumAttribute_str: EditableValue<string>;
     orientationMode: OrientationModeEnum;
     readOnlyStyle: ReadOnlyStyleEnum;
-    onChangeAction?: ActionValue;
 }
 
 export interface MultiSelectEnumPreviewProps {

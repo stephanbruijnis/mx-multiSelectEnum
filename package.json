@@ -1,9 +1,9 @@
 {
   "name": "multiselectenum",
   "widgetName": "MultiSelectEnum",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Select multiple enumeration values",
-  "copyright": "2024 Stephan Bruijnis Consultancy",
+  "copyright": "2025 Stephan Bruijnis Consultancy",
   "author": "Stephan Bruijnis",
   "engines": {
     "node": ">=12"
@@ -22,15 +22,29 @@
     "prerelease": "npm run lint",
     "release": "pluggable-widgets-tools release:web"
   },
-  "license": "AGPL-3.0",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@mendix/pluggable-widgets-tools": "^9.0.0",
     "@types/big.js": "^6.0.2",
-    "@types/classnames": "^2.2.4",
-    "@types/react": "~17.0.1",
-    "@types/react-dom": "~17.0.1"
+    "@types/classnames": "^2.2.4"
   },
   "dependencies": {
     "classnames": "^2.2.6"
+  },
+  "overrides": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.70.7",
+    "@types/react": "18.0.0",
+    "@types/react-dom": "18.0.0",
+    "@types/react-native": "0.70.0"
+  },
+  "resolutions": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.70.7",
+    "@types/react": "18.0.0",
+    "@types/react-dom": "18.0.0",
+    "@types/react-native": "0.70.0"
   }
 }
